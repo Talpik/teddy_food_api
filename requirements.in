@@ -1,0 +1,5 @@
+pytest-django
+requests
+django
+djangorestframework
+djangorestframework-simplejwt==4.4.0
