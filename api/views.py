@@ -159,7 +159,7 @@ class PetViewSet(viewsets.ModelViewSet):
     @action(methods=['GET'],
             detail=False,
             permission_classes=(AllowAny, ),
-            url_path='favorite/{town_id}')
+            url_path='favorite')
     def favorite(self, request):
         shelters = get_object_or_404(Town.objects.select_related(), town_id=request.data['town_id'])
         pets = get_object_or_404(shelters.pets.all()[0:10])
@@ -182,7 +182,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
     @action(methods=['GET'],
             detail=False,
             permission_classes=(AllowAny, ),
-            url_path='transactions/{town_id}')
+            url_path='transactions')
     def get_town_transactions(self, request):
         town = get_object_or_404(Town.objects.select_related(), town_id=request.data['town_id'])
         transactions = get_object_or_404(town.transactions.all()[0:10])

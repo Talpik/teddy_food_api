@@ -184,7 +184,7 @@ class Pet(models.Model):
         Calculate rating of pet
         :return:
         """
-        result = self.in_favorites + self.take_a_home + self.take_a_walk + self.visit_counter
+        result = self.in_favorites * 0.3 + self.take_a_home * 0.2 + self.take_a_walk * 0.2 + self.visit_counter * 0.3
         return None if result is None else int(result)
 
     class Meta:
